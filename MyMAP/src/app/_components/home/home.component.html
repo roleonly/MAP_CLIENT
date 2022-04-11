@@ -1,4 +1,49 @@
-<br>
-<h2 style="cursor: pointer;" (click)="logout()">Logout</h2>
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
 
-<hr>
+
+
+
+    <div class="row asd">
+        <div class="col  col-sm-6">
+<div id='map' class="map flex" ></div>
+</div>
+
+<div class="flexx  col-sm-6">
+   
+<div *ngFor="let item of allCity"   >
+
+   
+ 
+        <app-myparcel [name]="item.name" (CityMap)="MapBoxAddLayer($event)"> </app-myparcel>
+
+ 
+  
+
+    </div>
+
+</div>
+</div>
+
+
+
+<style>
+.asd{
+   height: 100vh; 
+}
+.map {
+    height:100vh;
+   
+    display: flex;
+    
+}
+.flexx{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+</style>
+
+<h2 style="cursor: pointer;" (click)="logout()">Logout</h2>

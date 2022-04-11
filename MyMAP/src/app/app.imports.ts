@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { HomeComponent,LoginComponent } from './_components';
+import { HomeComponent,LoginComponent,MyparcelComponent } from './_components';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { FormsModule,ReactiveFormsModule } from "@angular/forms";
@@ -9,7 +9,8 @@ import { ErrorInterceptor,JwtInterceptor } from "./_helpers";
 
 export const COMPONENTS : any[] = [
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    MyparcelComponent
 ];
 
 export const MODULES : any[] = [

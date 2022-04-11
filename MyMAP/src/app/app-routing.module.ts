@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent, LoginComponent } from './_components';
+import { HomeComponent, LoginComponent,MyparcelComponent,RasterComponent } from './_components';
 import { AuthGuard } from "./_guards";
 
 const routes: Routes = [
@@ -17,7 +17,13 @@ const routes: Routes = [
     path : 'home',
     component : HomeComponent,
     canActivate : [AuthGuard]
-  }
+  },
+    {
+      path:'raster',
+      component:RasterComponent,
+      
+    }
+
 ];
 
 @NgModule({

@@ -36,7 +36,7 @@ export class AuthenticationService {
   }
 
   refreshToken() {
-    const url: string = `${environment.apiUrl}auth/token`;
+    const url: string = `${environment.apiUrl}auth/token/refresh/`;
 
     const body: any = {
       token : this.userValue.refresh_token
