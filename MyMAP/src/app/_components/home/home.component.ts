@@ -71,7 +71,7 @@ export class HomeComponent implements OnInit {
       center:[coordinate[0],coordinate[1]],
      
       zoom: 6,
-      speed: 0.2,
+      speed: 0.5,
     });
   
   

@@ -13,7 +13,7 @@ import { asapScheduler } from 'rxjs';
 })
 export class RasterComponent implements OnInit {
   isImageLoading:boolean=true;
-  imageLoaded:string;
+  imageLoaded:any;
   coordinates:any;
 raster:string="";
 mapp:mapboxgl.Map;
@@ -79,7 +79,7 @@ ngOnInit(): void {
   });
 
 }
-image:any;
+
 
 
 
@@ -89,28 +89,88 @@ image:any;
 
 
 MapBoxAddLayer(){
-    
 
-this.mapp.addSource('radar', {
-'type': 'image',
-'url': 'https://docs.mapbox.com/mapbox-gl-js/assets/radar.gif',
-'coordinates': [
-[26.22208333333333,39.47236111111111],
-[27,39.47236111111111],
-[27,41],
-[26.22208333333333,41]
+
+  let coordinates=[
+      
+    [this.imageLoaded['coords'][0],   this.imageLoaded['coords'][1]],
+    [this.imageLoaded['coords'][0]+(this.imageLoaded['imageW']*0.00027777),   this.imageLoaded['coords'][1]],
+    [this.imageLoaded['coords'][0]+(this.imageLoaded['imageW']*0.00027777),   this.imageLoaded['coords'][1]-(this.imageLoaded['imageH']*0.00027777)],
+    [this.imageLoaded['coords'][0],   this.imageLoaded['coords'][1]-(this.imageLoaded['imageH']*0.00027777)],
+
+
 ]
-});
-this.mapp.addLayer({
-id: 'radar-layer',
-'type': 'raster',
-'source': 'radar',
-'paint': {
-'raster-fade-duration': 0
+console.warn(coordinates);
+
+  this.mapp.addSource('radar', {
+    'type': 'image',
+    'url': this.imageLoaded['url'],
+    'coordinates': coordinates
+    
+  }
+    )
+    this.mapp.addLayer({
+      id: 'radar-layer',
+      'type': 'raster',
+      'source': 'radar',
+      
+      'paint': {
+      'raster-fade-duration': 0
+      
+      }
+      });
+     
+      this.mapp.flyTo({
+        center:[this.imageLoaded['coords'][0],   this.imageLoaded['coords'][1]],
+       
+        zoom: 6,
+        speed: 0.5,
+      });
+//this.mapp.loadImage(
+//    this.imageLoaded['url'],
+//    (error, image:any) => {
+//    if (error) throw error;
+//     
+//    // Add the image to the map style.
+//    this.mapp.addImage('cat', image);
+//     
+//    // Add a data source containing one point feature.
+//    this.mapp.addSource('point', {
+//    'type': 'geojson',
+//    'data': {
+//    'type': 'FeatureCollection',
+//    'features': [
+//    {
+//    'properties': {},
+//    'type': 'Feature',
+//    'geometry': {
+//    'type': 'Point',
+//    'coordinates': this.imageLoaded['coords']
+//    }
+//    }
+//    ]
+//    }
+//    });
+//     
+//    // Add a layer to use the image to represent the data.
+//    this.mapp.addLayer({
+//    'id': 'points',
+//    'type': 'symbol',
+//    'source': 'point', // reference the data source
+//    'layout': {
+//    'icon-image': 'cat', // reference the image
+//    'icon-size': 0.25
+//    }
+//    });
+//    }
+//    );
+//  
+  
+
+
+   
+
 }
-});
-
-}}
-
+}
 
 
