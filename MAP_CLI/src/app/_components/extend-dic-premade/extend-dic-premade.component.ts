@@ -15,7 +15,7 @@ import { MatTable, MatTableDataSource } from '@angular/material/table';
 export class ExtendDicPremadeComponent implements OnInit {
 
   displayedColumns = [ 'name','actions'];
-  parcels_user=new MatTableDataSource<parcel>();
+  parcels_user:parcel[]=[];
   parcels_city:parcel[]=[];
   parcels_country:parcel[]=[];
 
@@ -42,10 +42,8 @@ export class ExtendDicPremadeComponent implements OnInit {
     this._parcelService.get_user_parcel("").subscribe(
       (data:parcel[])=>{
         
-        this.parcels_user.data=data;
-        this.parcels_user.paginator = this.paginator;
-        this.parcels_user.sort = this.sort;
-        
+       this.parcels_user=data;
+       console.warn(this.parcels_user);
       }
     )
     this._parcelService.get_city_parcel("").subscribe(
@@ -70,4 +68,13 @@ export class ExtendDicPremadeComponent implements OnInit {
     console.warn(id)
   }
  refresh(){}
+
+ bip(id)  {
+   console.warn(id);
+ }
+ AddtoUserParcel(i:number ,id:number,name:string)
+ {
+   
+ }
+ 
 }
