@@ -1,15 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { HomeComponent,LoginComponent } from './_components';
+import { HomeComponent,LoginComponent,RegisterComponent } from './_components';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { FormsModule,ReactiveFormsModule } from "@angular/forms";
 import { ErrorInterceptor,JwtInterceptor } from "./_helpers";
 
+
+
+export function tokenGetter() {
+    return localStorage.getItem("user")["access_token"];
+    
+}
+
 export const COMPONENTS : any[] = [
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    RegisterComponent
 ];
 
 export const MODULES : any[] = [
@@ -17,7 +25,8 @@ export const MODULES : any[] = [
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+   
 ];
 
 export const PROVIDERS : any[] = [

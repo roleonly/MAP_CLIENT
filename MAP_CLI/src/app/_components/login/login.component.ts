@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
 
   get f(){
     return this.loginForm.value;
+    
   }
 
   createForm(){
@@ -34,10 +35,12 @@ export class LoginComponent implements OnInit {
       username : ['',[Validators.required]],
       password : ['',[Validators.required]]
     })
+    
   }
 
   async submit(){
     const {username,password} = this.f;
+    
     this._auth.logIn(username,password).subscribe(
       ()=> {this.router.navigate(['/home']);
     

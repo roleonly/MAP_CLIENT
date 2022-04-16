@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent, LoginComponent } from './_components';
+import { HomeComponent,ExtendDicPremadeComponent  } from './_components';
 import { AuthGuard } from "./_guards";
 
 const routes: Routes = [
@@ -9,15 +9,19 @@ const routes: Routes = [
     redirectTo : 'home',
     pathMatch : 'full'
   },
-  {
-    path : 'login',
-    component : LoginComponent
-  },
+  
   {
     path : 'home',
     component : HomeComponent,
+    //canActivate : [AuthGuard]
+  }
+,
+  {
+    path : 'ex_dic_pre',
+    component : ExtendDicPremadeComponent,
     canActivate : [AuthGuard]
   }
+
 ];
 
 @NgModule({

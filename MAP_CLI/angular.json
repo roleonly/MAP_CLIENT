@@ -35,8 +35,10 @@
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js",
-              "assets/js/homecomponent.js"
+             
+              "src/assets/js/homecomponent.js"
+              
+              
             ]
           },
           "configurations": {
