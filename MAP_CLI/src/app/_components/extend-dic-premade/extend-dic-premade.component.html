@@ -1,9 +1,60 @@
 <app-minimenu></app-minimenu>
 <div class="row">
-    <div class="col col-md-2 color1 fullheight"></div>
+    <div class="col col-md-12 color1 fullheight">
+
+   
+
+
+<div class="container mat-elevation-z8">
+
+
+  <mat-table #table [dataSource]="parcels_user" matSort class="mat-cell">
+    ng update @angular/cli @angular/core
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
+      <mat-cell *matCellDef="let row" >{{row.id}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Title</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.name}}</mat-cell>
+    </ng-container>
+
+
+    <!-- actions -->
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef>
+        Actions
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let row; let i=index;">
+        
+
+        <button mat-icon-button color="accent" (click)="deleteUserParcel(i, row.id, row.name)">
+          <mat-icon svgIcon="thumbs-up"  aria-label="Delete"></mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+
+  
+
+</div>
+
+
+
+    </div>
     <div class="col col-md-2 color2 fullheight"></div>
     <div class="col col-md-2 color3 fullheight"></div>
-    <div class="col col-md-6 color4 fullheight"></div>
+    <div class="col col-md-2 color4 fullheight"></div>
 </div>
 
 <style>

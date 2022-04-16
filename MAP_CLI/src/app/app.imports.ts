@@ -6,9 +6,18 @@ import { HomeComponent,LoginComponent,RegisterComponent } from './_components';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { FormsModule,ReactiveFormsModule } from "@angular/forms";
 import { ErrorInterceptor,JwtInterceptor } from "./_helpers";
-
-
-
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { ExtendDicPremadeComponent } from './_components/extend-dic-premade/extend-dic-premade.component';
+import { MinimenuComponent } from './_components/minimenu/minimenu.component';
+import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 export function tokenGetter() {
     return localStorage.getItem("user")["access_token"];
     
@@ -17,7 +26,10 @@ export function tokenGetter() {
 export const COMPONENTS : any[] = [
     LoginComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    ExtendDicPremadeComponent,
+    MinimenuComponent,
+    AppComponent,
 ];
 
 export const MODULES : any[] = [
@@ -26,6 +38,15 @@ export const MODULES : any[] = [
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MatButtonModule,
+        MatInputModule,
+        MatIconModule,
+        MatSortModule,
+        MatTableModule,
+        MatToolbarModule,
+        MatPaginatorModule,
+        MatDialogModule,
+        BrowserAnimationsModule
    
 ];
 

@@ -8,10 +8,9 @@ import { MinimenuComponent } from './_components/minimenu/minimenu.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    
     COMPONENTS,
-    ExtendDicPremadeComponent,
-    MinimenuComponent
+    
   ],
   imports: [
     MODULES

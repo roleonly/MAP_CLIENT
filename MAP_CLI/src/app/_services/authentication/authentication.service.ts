@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { map } from "rxjs/operators";
-import { User } from "../../_models/user";
+import { User } from "../../_models/";
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
